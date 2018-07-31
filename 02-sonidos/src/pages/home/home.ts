@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ANIMALES } from "../../data/data.animales";
-import { animal } from "../../interfaces/animal.interface";
+import { Animal } from "../../interfaces/animal.interface";
 
 @Component({
   selector: 'page-home',
@@ -19,6 +19,16 @@ export class HomePage {
 
   reproducir (animal:Animal){
     console.log(animal);
+
+    let audio = new Audio();
+    audio.src=animal.audio;
+
+    audio.load();
+    audio.play();
+
+    animal.reproduciendo = true;
+
+    setTimeout( () => animal.reproduciendo = false, animal.duracion = 1000);
   }
 
 }
