@@ -1,5 +1,5 @@
 export interface Animal{
-  nombrest:string;
+  nombre:string;
   imagen:string;
   audio: string;
   duracion: number;
